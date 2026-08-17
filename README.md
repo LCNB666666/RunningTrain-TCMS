@@ -65,7 +65,7 @@ make.bat
 4. 在窗口 WM_PAINT 里调用 tcms_screen_draw(&st, hdc);
    或 tcms_screen_save_bmp(&st, "xxx.bmp") 存图。
 
-车厢编号：0=TC1 1=MP1 2=M1 3=M2 4=MP2 5=TC2（对应表格 C2..C7 列）
+车厢编号：0=TC1 1=M1 2=TC2 3=M2 4=M3 5=TC3（对应表格 C2..C7 列）
 
 > 说明：本仓库发布独立渲染组件（演示版）。完整集成版（含数据平滑、启动屏、分屏等）暂未公开。
 

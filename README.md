@@ -1,4 +1,4 @@
-# TCMS 车辆状态屏（C 语言版）
+# TCMS 车辆状态屏
 
 > 列车车辆状态屏（Train Control & Monitoring System）显示组件，C + Win32 GDI/GDI+ 实现，
 > 渲染 602x452 状态屏，可放大到任意目标尺寸。

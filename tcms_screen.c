@@ -499,9 +499,9 @@ int tcms_screen_save_bmp(const TCMS_State* s, const char* path) {
     return ok;
 }
 
-/* ================= 启动屏 (2026-08-16 用户需求: TCMS 与 DMI 同款开机流程) =================
- * DOS 自检 -> 待机时钟 -> 主界面; 阶段推进由 hud_boot 状态机驱动 (tcms 只负责画).
- * 行数/节拍与 DMI 的 DOS 屏一致 (10 行, 380ms/行), lines_shown 直接复用 DMI 计数. */
+/* ================= 启动屏 (2026-08-16) =================
+ * DOS 自检 -> 待机时钟 -> 主界面; 阶段由外部状态机推进 (本组件只负责绘制).
+ * 逐行显示 (10 行, 380ms/行). */
 #define TCMS_DOS_LINES 10
 #define TCMS_DOS_Y0    36
 #define TCMS_DOS_DY    30
@@ -528,7 +528,7 @@ static void tcms_build_dos_lines(wchar_t lines[TCMS_DOS_LINES][160])
     ms.dwLength = sizeof(ms);
     GlobalMemoryStatusEx(&ms);
     swprintf(lines[0], 160, L"TCMS 车辆状态屏 BIOS v1.2");
-    swprintf(lines[1], 160, L"Copyright (C) 2026 OpenETCS");
+    swprintf(lines[1], 160, L"Copyright (C) 2026");
     swprintf(lines[2], 160, L"CPU  : %ls", cpu);
     swprintf(lines[3], 160, L"MEM  : %.0fM OK", (double)ms.ullTotalPhys / (1024.0 * 1024.0));
     swprintf(lines[4], 160, L"列车总线 ............ OK");
